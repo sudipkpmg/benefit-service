@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="Benefit"
+                  targetNamespace="http://kpmg.com/krisdemo/services/benefit"
+                  xmlns:tns="http://kpmg.com/krisdemo/services/benefit"
+                  xmlns:types="http://kpmg.com/krisdemo/types/benefit"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+    <wsdl:types>
+        <xsd:schema
+                targetNamespace="http://kpmg.com/krisdemo/types/benefit"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                elementFormDefault="qualified"
+                attributeFormDefault="unqualified"
+                version="1.0">
+
+            <xsd:element name="PrimaryCareVisit">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="deductible" type="xsd:string" />
+                        <xsd:element name="coinsurance" type="xsd:string" />
+                        <xsd:element name="copay" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SpecialtyVisit">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="deductible" type="xsd:string" />
+                        <xsd:element name="coinsurance" type="xsd:string" />
+                        <xsd:element name="copay" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="UrgentCare">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="deductible" type="xsd:string" />
+                        <xsd:element name="coinsurance" type="xsd:string" />
+                        <xsd:element name="copay" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="EmergencyRoom">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="deductible" type="xsd:string" />
+                        <xsd:element name="coinsurance" type="xsd:string" />
+                        <xsd:element name="copay" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SpecialtyVisitInput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="memberId" type="xsd:string" />
+                        <xsd:element name="groupId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="PrimaryCareVisitInput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="memberId" type="xsd:string" />
+                        <xsd:element name="groupId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="UrgentCareInput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="memberId" type="xsd:string" />
+                        <xsd:element name="groupId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="EmergencyRoomInput">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="memberId" type="xsd:string" />
+                        <xsd:element name="groupId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="SpecialtyVisitInput">
+        <wsdl:part name="inputData" element="types:SpecialtyVisitInput" />
+    </wsdl:message>
+
+    <wsdl:message name="SpecialtyVisitOutput">
+        <wsdl:part name="outputData" element="types:SpecialtyVisit" />
+    </wsdl:message>
+
+    <wsdl:message name="PrimaryCareVisitInput">
+        <wsdl:part name="inputData" element="types:PrimaryCareVisitInput" />
+    </wsdl:message>
+
+    <wsdl:message name="PrimaryCareVisitOutput">
+        <wsdl:part name="outputData" element="types:PrimaryCareVisit" />
+    </wsdl:message>
+
+    <wsdl:message name="UrgentCareInput">
+        <wsdl:part name="inputData" element="types:UrgentCareInput" />
+    </wsdl:message>
+
+    <wsdl:message name="UrgentCareOutput">
+        <wsdl:part name="outputData" element="types:UrgentCare" />
+    </wsdl:message>
+
+    <wsdl:message name="EmergencyRoomInput">
+        <wsdl:part name="inputData" element="types:EmergencyRoomInput" />
+    </wsdl:message>
+
+    <wsdl:message name="EmergencyRoomOutput">
+        <wsdl:part name="outputData" element="types:EmergencyRoom" />
+    </wsdl:message>
+
+    <wsdl:portType name="Benefit_PortType">
+        <wsdl:operation name="getSpecialtySummary">
+            <wsdl:input message="tns:SpecialtyVisitInput" />
+            <wsdl:output message="tns:SpecialtyVisitOutput" />
+        </wsdl:operation>
+        <wsdl:operation name="getPrimaryCareSummary">
+            <wsdl:input message="tns:PrimaryCareVisitInput" />
+            <wsdl:output message="tns:PrimaryCareVisitOutput" />
+        </wsdl:operation>
+        <wsdl:operation name="getUrgentCareSummary">
+            <wsdl:input message="tns:UrgentCareInput" />
+            <wsdl:output message="tns:UrgentCareOutput" />
+        </wsdl:operation>
+        <wsdl:operation name="getEmergencyRoomSummary">
+            <wsdl:input message="tns:EmergencyRoomInput" />
+            <wsdl:output message="tns:EmergencyRoomOutput" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="Benefit_SoapBinding" type="tns:Benefit_PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getSpecialtySummary">
+            <soap:operation soapAction="http://kpmg.com/krisdemo/services/benefit/getSpecialtySummary" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPrimaryCareSummary">
+            <soap:operation soapAction="http://kpmg.com/krisdemo/services/benefit/getPrimaryCareSummary" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUrgentCareSummary">
+            <soap:operation soapAction="http://kpmg.com/krisdemo/services/benefit/getUrgentCareSummary" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmergencyRoomSummary">
+            <soap:operation soapAction="http://kpmg.com/krisdemo/services/benefit/getEmergencyRoomSummary" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="Benefit_Service">
+        <wsdl:documentation>Benefit Service</wsdl:documentation>
+<!--        <wsdl:port name="Benefit_PortType" binding="tns:Benefit_SoapBinding">-->
+<!--            <soap:address location="http://benefit-service-git-benefit-service.apps.kpmgocp.stotenrhos.com/krisdemo/ws" />-->
+<!--        </wsdl:port>-->
+        <wsdl:port name="Benefit_PortType" binding="tns:Benefit_SoapBinding">
+            <soap:address location="http://localhost:8080/krisdemo/ws" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
