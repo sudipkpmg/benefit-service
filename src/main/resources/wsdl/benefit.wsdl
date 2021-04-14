@@ -186,11 +186,11 @@
 
     <wsdl:service name="Benefit_Service">
         <wsdl:documentation>Benefit Service</wsdl:documentation>
-<!--        <wsdl:port name="Benefit_PortType" binding="tns:Benefit_SoapBinding">-->
-<!--            <soap:address location="http://benefit-service-git-benefit-service.apps.kpmgocp.stotenrhos.com/krisdemo/ws" />-->
-<!--        </wsdl:port>-->
         <wsdl:port name="Benefit_PortType" binding="tns:Benefit_SoapBinding">
-            <soap:address location="http://localhost:8080/krisdemo/ws" />
+            <soap:address location="http://benefit-service-git-benefit-service.apps.kpmgocp.stotenrhos.com//krisdemo/ws" />
         </wsdl:port>
+<!--        <wsdl:port name="Benefit_PortType" binding="tns:Benefit_SoapBinding">-->
+<!--            <soap:address location="http://localhost:8080/krisdemo/ws" />-->
+<!--        </wsdl:port>-->
     </wsdl:service>
 </wsdl:definitions>
